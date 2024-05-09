@@ -25,17 +25,35 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemViewHold
         notifyDataSetChanged();
     }
 
+    /**
+     * Cria e retorna um novo ViewHolder para inflar o layout do item quando necessário.
+     *
+     * @param parent O ViewGroup no qual o novo ViewHolder será adicionado após ser vinculado a uma View.
+     * @param viewType O tipo de view do novo ViewHolder.
+     * @return Um novo ItemViewHolder que contém a View do item inflado.
+     */
     @Override
     public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout, parent, false);
         return new ItemViewHolder(view);
     }
 
+    /**
+     * Retorna o número total de itens na lista de dados.
+     *
+     * @return O número total de itens na lista.
+     */
     @Override
     public int getItemCount() {
         return items.size();
     }
 
+    /**
+     * Liga os dados do item na posição especificada ao ViewHolder.
+     *
+     * @param holder O ViewHolder para o qual os dados devem ser vinculados.
+     * @param position A posição do item na lista de dados.
+     */
     @Override
     public void onBindViewHolder(ItemViewHolder holder, int position) {
         ItemModel item = items.get(position);
